@@ -1,9 +1,15 @@
 import React from "react";
+import Task from "./Task"
+import { v4 as uuid } from "uuid";
 
-function TaskList() {
+
+function TaskList({ tasks, deleter }) {
+
+  const taskerList = tasks.map((task) => (<Task key={uuid()} deleter={ deleter } text={task.text} category={task.category} />))
+
   return (
     <div className="tasks">
-      {/* display a list of tasks using Task component */}
+      { taskerList }
     </div>
   );
 }
